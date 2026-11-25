@@ -6,7 +6,7 @@
 <meta name="description" content="Jamia Zia Ul Quran Trust LAM, Guntur — Quranic, Islamic and general education.">
 <title>Jamia Zia Ul Quran Trust LAM | Guntur</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Noto+Serif:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Gulzar&family=Noto+Sans+Telugu:wght@400;500;600;700&family=Hind+Guntur:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#102f30;--teal:#073f43;--teal2:#0b5b5b;--gold:#caa34a;--gold2:#f0d995;--paper:#f7f6f1;--white:#fff;--muted:#687b78;--line:#e7e4da;--shadow:0 22px 65px rgba(7,42,43,.12)}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.65;overflow-x:hidden}a{color:inherit;text-decoration:none}button,select,input,textarea{font:inherit}.wrap{width:min(1160px,calc(100% - 44px));margin:auto}
@@ -31,6 +31,37 @@ html[lang=te] body{font-family:"Noto Sans Telugu","DM Sans",sans-serif}html[lang
 @media(max-width:520px){.wrap{width:min(100% - 30px,1160px)}.brand img{width:48px;height:48px}.brand{min-width:0}.brand-text strong{font-size:10px}.brand-text small{font-size:8px;letter-spacing:1.2px}.hero h1{font-size:43px;letter-spacing:-.7px}.hero-copy{font-size:14px}.hero-grid{padding:55px 0 45px}.hero-visual{min-height:250px}.seal-ring{width:230px}.stats-grid{padding:22px 0}.stat{border:0}.stat span{font-size:10px}.cards,.facility-grid,.news-grid,.gallery-grid{grid-template-columns:1fr}.gallery-tile:first-child{grid-column:auto;min-height:250px}.gallery-tile{min-height:220px}.paper-card,.message-card{padding:24px}.form-row{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.footer-grid>div:first-child{grid-column:auto}section{padding:58px 0}.section-head{margin-bottom:30px}.section-title{font-size:33px}.modal-box{padding:24px 18px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
+<style id="cms-design-presets">
+body{font-family:var(--cms-font-body,"DM Sans"),sans-serif}
+.brand-text strong,.hero h1,.section-title,.info-card h3,.future h2,.footer-brand strong,.modal-box h2{font-family:var(--cms-font-heading,"Playfair Display"),serif}
+html[lang="ur"] body,html[lang="ur"] body *{font-family:var(--cms-font-urdu,"Noto Nastaliq Urdu"),serif!important}
+html[lang="te"] body,html[lang="te"] body *{font-family:var(--cms-font-telugu,"Noto Sans Telugu"),sans-serif!important}
+body[data-layout="editorial"] .hero{min-height:570px}
+body[data-layout="editorial"] .hero-grid{grid-template-columns:1fr;gap:20px;text-align:center;padding:68px 0}
+body[data-layout="editorial"] .hero-copy{margin:0 auto}
+body[data-layout="editorial"] .hero-actions{justify-content:center}
+body[data-layout="editorial"] .hero-visual{min-height:280px}
+body[data-layout="editorial"] .seal-ring{width:250px}
+body[data-layout="editorial"] .section-head{max-width:850px}
+body[data-layout="editorial"] section{padding-top:105px;padding-bottom:105px}
+body[data-layout="modern"] .hero{border-radius:0 0 34px 34px;min-height:610px}
+body[data-layout="modern"] .seal-ring{border-width:3px;box-shadow:0 0 0 12px rgba(235,203,126,.08),0 22px 70px rgba(0,0,0,.2)}
+body[data-layout="modern"] .info-card,body[data-layout="modern"] .paper-card,body[data-layout="modern"] .message-card,body[data-layout="modern"] .notice,body[data-layout="modern"] .gallery-tile{border-radius:23px}
+body[data-layout="modern"] .info-card{box-shadow:0 12px 30px rgba(7,42,43,.08);border-color:transparent}
+body[data-layout="minimal"] .hero{min-height:570px;background:linear-gradient(125deg,#f1f5f0,#e4eee8);color:var(--ink)}
+body[data-layout="minimal"] .hero:before,body[data-layout="minimal"] .hero:after{opacity:.05}
+body[data-layout="minimal"] .hero h1{color:var(--teal)}
+body[data-layout="minimal"] .hero-copy{color:#506b67}
+body[data-layout="minimal"] .eyebrow{border-color:rgba(7,63,67,.2);color:#8c6d2d}
+body[data-layout="minimal"] .eyebrow:before{background:var(--gold)}
+body[data-layout="minimal"] .btn-outline{color:var(--teal);border-color:rgba(7,63,67,.35)}
+body[data-layout="minimal"] .seal-ring{box-shadow:none;border-color:var(--gold)}
+body[data-layout="minimal"] .seal-ring img{background:#fff;box-shadow:0 12px 35px rgba(7,42,43,.08)}
+body[data-layout="minimal"] .seal-caption{color:#7c6a43}
+body[data-layout="minimal"] section{padding-top:72px;padding-bottom:72px}
+body[data-layout="minimal"] .paper-card,body[data-layout="minimal"] .info-card{box-shadow:none;border-radius:10px}
+@media(max-width:780px){body[data-layout="editorial"] .hero-grid{grid-template-columns:1fr}body[data-layout="editorial"] .hero-visual{min-height:235px}body[data-layout="editorial"] .seal-ring{width:215px}}
+</style>
 </head>
 <body>
 <div class="topline"></div>
@@ -50,11 +81,11 @@ html[lang=te] body{font-family:"Noto Sans Telugu","DM Sans",sans-serif}html[lang
 <div class="hero-actions"><a class="btn" href="#about" data-i18n="explore">Discover Jamia</a><button class="btn btn-outline" onclick="openModal()" data-i18n="admission">Admission Enquiry</button></div></div>
 <div class="hero-visual reveal delay-2"><div class="seal-ring"><img src="assets/madrasa-logo.svg" alt="Jamia Zia Ul Quran official emblem"></div><div class="seal-caption" data-i18n="sealCaption">JAMIA ZIA UL QURAN · LAM · GUNTUR</div></div>
 </div></section>
-<div class="stats"><div class="wrap stats-grid"><div class="stat"><b>140</b><span data-i18n="students">Students</span></div><div class="stat"><b>11</b><span data-i18n="teachers">Teachers</span></div><div class="stat"><b>5</b><span data-i18n="staff">Staff</span></div><div class="stat"><b>2021</b><span data-i18n="founded">Established</span></div></div></div>
-<section id="about"><div class="wrap"><div class="section-head reveal"><div class="section-kicker" data-i18n="missionKicker">OUR EDUCATIONAL MISSION</div><h2 class="section-title" data-i18n="missionTitle">Building faith, knowledge and character for the next generation.</h2><p class="section-intro" data-i18n="missionIntro">A nurturing environment where traditional values meet meaningful education.</p></div>
+<div class="stats" data-cms-section="stats"><div class="wrap stats-grid"><div class="stat"><b>140</b><span data-i18n="students">Students</span></div><div class="stat"><b>11</b><span data-i18n="teachers">Teachers</span></div><div class="stat"><b>5</b><span data-i18n="staff">Staff</span></div><div class="stat"><b>2021</b><span data-i18n="founded">Established</span></div></div></div>
+<section id="about" data-cms-section="about"><div class="wrap"><div class="section-head reveal"><div class="section-kicker" data-i18n="missionKicker">OUR EDUCATIONAL MISSION</div><h2 class="section-title" data-i18n="missionTitle">Building faith, knowledge and character for the next generation.</h2><p class="section-intro" data-i18n="missionIntro">A nurturing environment where traditional values meet meaningful education.</p></div>
 <div class="about-grid"><article class="paper-card reveal"><div class="section-kicker" data-i18n="aboutKicker">ABOUT THE INSTITUTION</div><h2 class="section-title" data-i18n="aboutTitle">Jamia Zia Ul Quran Trust LAM</h2><p data-i18n="aboutText">Jamia is committed to providing Quranic, Islamic and general education in a disciplined and nurturing environment, serving students from local and surrounding communities.</p><ul class="feature-list"><li data-i18n="about1">Quranic and Islamic education</li><li data-i18n="about2">General education support</li><li data-i18n="about3">Hostel and day-scholar facilities</li><li data-i18n="about4">Future expansion towards Alim course</li></ul></article>
 <article class="message-card reveal delay-1"><div class="section-kicker" data-i18n="principalKicker">A MESSAGE FROM THE PRINCIPAL</div><h2 class="section-title" style="color:#fff" data-i18n="principalTitle">A word of guidance</h2><p data-i18n="principalQuote">“Our aim is to nurture students with faith, knowledge, discipline and good character, preparing them to contribute positively to their families and society.”</p><h3>Mufti Mohammad Asif Nadwi</h3><small data-i18n="principalRole">Founder & Principal</small><p style="margin-top:20px">☎ <a href="tel:9490573316">9490573316</a></p></article></div></div></section>
-<section id="education" style="background:#fff"><div class="wrap"><div class="section-head reveal"><div class="section-kicker" data-i18n="learningKicker">WHAT WE TEACH</div><h2 class="section-title" data-i18n="learningTitle">Learning for this life and the Hereafter</h2><p class="section-intro" data-i18n="learningIntro">A balanced foundation of Quranic, Islamic and general subjects.</p></div><div class="cards">
+<section id="education" data-cms-section="education" style="background:#fff"><div class="wrap"><div class="section-head reveal"><div class="section-kicker" data-i18n="learningKicker">WHAT WE TEACH</div><h2 class="section-title" data-i18n="learningTitle">Learning for this life and the Hereafter</h2><p class="section-intro" data-i18n="learningIntro">A balanced foundation of Quranic, Islamic and general subjects.</p></div><div class="cards">
 <article class="info-card reveal"><div class="info-icon">۞</div><h3 data-i18n="noorani">Noorani Qaida</h3><p data-i18n="nooraniDesc">Foundational Quran reading and pronunciation.</p></article>
 <article class="info-card reveal delay-1"><div class="info-icon">📖</div><h3 data-i18n="nazira">Nazira Quran</h3><p data-i18n="naziraDesc">Quran recitation with proper reading practice.</p></article>
 <article class="info-card reveal delay-2"><div class="info-icon">✦</div><h3 data-i18n="hifz">Hifz Quran</h3><p data-i18n="hifzDesc">Memorisation of the Holy Quran.</p></article>
@@ -64,7 +95,7 @@ html[lang=te] body{font-family:"Noto Sans Telugu","DM Sans",sans-serif}html[lang
 <article class="info-card reveal delay-2"><div class="info-icon">A</div><h3 data-i18n="english">English</h3><p data-i18n="englishDesc">English language and communication.</p></article>
 <article class="info-card reveal delay-3"><div class="info-icon">∑</div><h3 data-i18n="math">Mathematics</h3><p data-i18n="mathDesc">Foundational mathematics education.</p></article>
 </div></div></section>
-<section class="facility-section" id="facilities"><div class="wrap"><div class="section-head reveal"><div class="section-kicker" data-i18n="lifeKicker">LIFE AT JAMIA</div><h2 class="section-title" data-i18n="lifeTitle">A supportive place to learn and live</h2><p class="section-intro" data-i18n="lifeIntro">Facilities that support students in learning and daily life.</p></div><div class="cards facility-grid">
+<section class="facility-section" id="facilities" data-cms-section="facilities"><div class="wrap"><div class="section-head reveal"><div class="section-kicker" data-i18n="lifeKicker">LIFE AT JAMIA</div><h2 class="section-title" data-i18n="lifeTitle">A supportive place to learn and live</h2><p class="section-intro" data-i18n="lifeIntro">Facilities that support students in learning and daily life.</p></div><div class="cards facility-grid">
 <article class="info-card reveal"><div class="info-icon">⌂</div><h3 data-i18n="hostel">Hostel</h3><p data-i18n="hostelDesc">Residential facility for students.</p></article>
 <article class="info-card reveal delay-1"><div class="info-icon">♧</div><h3 data-i18n="dayScholar">Day Scholar</h3><p data-i18n="dayScholarDesc">Facility for local students.</p></article>
 <article class="info-card reveal delay-2"><div class="info-icon">☾</div><h3 data-i18n="masjid">Masjid</h3><p data-i18n="masjidDesc">A dedicated place for prayer and worship.</p></article>
@@ -72,18 +103,18 @@ html[lang=te] body{font-family:"Noto Sans Telugu","DM Sans",sans-serif}html[lang
 <article class="info-card reveal delay-1"><div class="info-icon">⚽</div><h3 data-i18n="playground">Playground</h3><p data-i18n="playgroundDesc">Space for recreation and physical activity.</p></article>
 <article class="info-card reveal delay-2"><div class="info-icon">▤</div><h3 data-i18n="classrooms">Classrooms</h3><p data-i18n="classroomsDesc">Learning spaces for academic programs.</p></article>
 </div></div></section>
-<section><div class="wrap"><div class="future reveal"><span class="eyebrow" data-i18n="futureKicker">FUTURE ACADEMIC PROGRAM</span><h2><span data-i18n="alim">Alim Course</span> · <span style="color:var(--gold2)" data-i18n="soon">Coming Soon</span></h2><p data-i18n="futureText">Jamia plans to expand its academic offerings with an Alim course in the future.</p></div></div></section>
-<section id="news" style="background:#fff"><div class="wrap"><div class="section-head reveal"><div class="section-kicker" data-i18n="updatesKicker">STAY INFORMED</div><h2 class="section-title" data-i18n="updatesTitle">News & Notices</h2><p class="section-intro" data-i18n="updatesIntro">Announcements and important information from Jamia.</p></div><div class="news-grid">
+<section data-cms-section="future"><div class="wrap"><div class="future reveal"><span class="eyebrow" data-i18n="futureKicker">FUTURE ACADEMIC PROGRAM</span><h2><span data-i18n="alim">Alim Course</span> · <span style="color:var(--gold2)" data-i18n="soon">Coming Soon</span></h2><p data-i18n="futureText">Jamia plans to expand its academic offerings with an Alim course in the future.</p></div></div></section>
+<section id="news" data-cms-section="news" style="background:#fff"><div class="wrap"><div class="section-head reveal"><div class="section-kicker" data-i18n="updatesKicker">STAY INFORMED</div><h2 class="section-title" data-i18n="updatesTitle">News & Notices</h2><p class="section-intro" data-i18n="updatesIntro">Announcements and important information from Jamia.</p></div><div class="news-grid">
 <div class="notice reveal"><strong data-i18n="welcomeNotice">Welcome to Jamia Zia Ul Quran Trust LAM</strong><p data-i18n="welcomeNoticeDesc">Official website information and announcements will appear here.</p></div><div class="notice reveal delay-1"><strong data-i18n="admissionsNotice">Admissions</strong><p data-i18n="admissionsNoticeDesc">For admission enquiries, contact the Principal at 9490573316.</p></div></div></div></section>
-<section id="events"><div class="wrap"><div class="section-head reveal"><div class="section-kicker" data-i18n="calendarKicker">COMMUNITY & CAMPUS</div><h2 class="section-title" data-i18n="eventsTitle">Events & Activities</h2><p class="section-intro" data-i18n="eventsIntro">Programs and activities will be published here.</p></div><div class="paper-card reveal" style="text-align:center"><h3 data-i18n="eventsSoon">Events Coming Soon</h3><p data-i18n="eventsDesc">The Admin Panel will allow authorized staff to publish events, dates and details.</p></div></div></section>
-<section id="gallery" style="background:#fff"><div class="wrap"><div class="section-head reveal"><div class="section-kicker" data-i18n="visualKicker">A GLIMPSE OF JAMIA</div><h2 class="section-title" data-i18n="galleryTitle">Campus & Gallery</h2><p class="section-intro" data-i18n="galleryIntro">A look at our campus, facilities and activities.</p></div><div class="gallery-grid">
+<section id="events" data-cms-section="events"><div class="wrap"><div class="section-head reveal"><div class="section-kicker" data-i18n="calendarKicker">COMMUNITY & CAMPUS</div><h2 class="section-title" data-i18n="eventsTitle">Events & Activities</h2><p class="section-intro" data-i18n="eventsIntro">Programs and activities will be published here.</p></div><div class="paper-card reveal" style="text-align:center"><h3 data-i18n="eventsSoon">Events Coming Soon</h3><p data-i18n="eventsDesc">The Admin Panel will allow authorized staff to publish events, dates and details.</p></div></div></section>
+<section id="gallery" data-cms-section="gallery" style="background:#fff"><div class="wrap"><div class="section-head reveal"><div class="section-kicker" data-i18n="visualKicker">A GLIMPSE OF JAMIA</div><h2 class="section-title" data-i18n="galleryTitle">Campus & Gallery</h2><p class="section-intro" data-i18n="galleryIntro">A look at our campus, facilities and activities.</p></div><div class="gallery-grid">
 <div class="gallery-tile reveal"><img src="assets/jamia-masjid.jpg" alt="Jamia Masjid" onerror="this.style.display='none'"><div class="gallery-label"><strong data-i18n="masjid">Jamia Masjid</strong><span data-i18n="campusLabel">CAMPUS & FACILITIES</span></div></div>
 <div class="gallery-tile reveal delay-1"><div class="gallery-label"><strong data-i18n="quranGallery">Quranic Education</strong><span data-i18n="learningLabel">LEARNING AT JAMIA</span></div></div>
 <div class="gallery-tile reveal delay-2"><div class="gallery-label"><strong data-i18n="studentGallery">Student Activities</strong><span data-i18n="studentLabel">STUDENT LIFE</span></div></div>
 <div class="gallery-tile reveal delay-1"><div class="gallery-label"><strong data-i18n="campusGallery">Campus & Facilities</strong><span data-i18n="campusLabel">CAMPUS & FACILITIES</span></div></div>
 <div class="gallery-tile reveal delay-2"><div class="gallery-label"><strong data-i18n="eventGallery">Programs & Events</strong><span data-i18n="eventLabel">COMMUNITY</span></div></div>
 </div></div></section>
-<section id="contact"><div class="wrap"><div class="section-head reveal"><div class="section-kicker" data-i18n="connectKicker">GET IN TOUCH</div><h2 class="section-title" data-i18n="contactTitle">We would love to hear from you</h2><p class="section-intro" data-i18n="contactIntro">Contact Jamia for admission enquiries and further information.</p></div><div class="contact-grid">
+<section id="contact" data-cms-section="contact"><div class="wrap"><div class="section-head reveal"><div class="section-kicker" data-i18n="connectKicker">GET IN TOUCH</div><h2 class="section-title" data-i18n="contactTitle">We would love to hear from you</h2><p class="section-intro" data-i18n="contactIntro">Contact Jamia for admission enquiries and further information.</p></div><div class="contact-grid">
 <div class="paper-card reveal"><h3 data-i18n="contactDetails">Contact Details</h3><div class="contact-line">⌖ <span>Jonnalagadda X Road, Tadikonda Mandal, Guntur District, Andhra Pradesh – 522034</span></div><div class="contact-line">☎ <a href="tel:9490573316">9490573316</a></div><div class="contact-line">✉ <a href="mailto:jamiaziaulqurantrustlam@gmail.com">jamiaziaulqurantrustlam@gmail.com</a></div><div class="hero-actions"><a class="btn" href="tel:9490573316" data-i18n="call">Call Now</a><a class="btn" style="background:#e7f2ec" href="https://wa.me/919490573316" target="_blank" rel="noopener">WhatsApp</a></div></div>
 <div class="paper-card reveal delay-1"><h3 data-i18n="sendEnquiry">Send an Enquiry</h3><form onsubmit="submitInline(event)"><div class="form-row"><input required name="name" placeholder="Your Name" data-ph="yourName"><input required type="tel" name="phone" placeholder="Mobile Number" data-ph="mobile"></div><input name="course" placeholder="Course / Class Interested In" data-ph="course"><textarea name="message" placeholder="Message" data-ph="message"></textarea><button class="btn" type="submit" data-i18n="submit">Submit Enquiry</button></form></div>
 </div></div></section>
@@ -133,6 +164,20 @@ let initial="en";try{initial=localStorage.getItem("jamia-lang")||"en"}catch(e){}
       if(cfg.theme.primary) root.style.setProperty("--teal",cfg.theme.primary);
       if(cfg.theme.secondary) root.style.setProperty("--teal2",cfg.theme.secondary);
       if(cfg.theme.gold) root.style.setProperty("--gold",cfg.theme.gold);
+    }
+    if(cfg.appearance){
+      const a=cfg.appearance, root=document.documentElement, safeFont=value=>String(value||'').replace(/[^a-zA-Z0-9 -]/g,'').trim();
+      const fonts=a.fonts||{};
+      if(fonts.body) root.style.setProperty('--cms-font-body','"'+safeFont(fonts.body)+'"');
+      if(fonts.heading) root.style.setProperty('--cms-font-heading','"'+safeFont(fonts.heading)+'"');
+      if(fonts.urdu) root.style.setProperty('--cms-font-urdu','"'+safeFont(fonts.urdu)+'"');
+      if(fonts.telugu) root.style.setProperty('--cms-font-telugu','"'+safeFont(fonts.telugu)+'"');
+      document.body.dataset.layout=['classic','editorial','modern','minimal'].includes(a.layout)?a.layout:'classic';
+      const main=document.querySelector('main'), sectionNodes=[...document.querySelectorAll('[data-cms-section]')], byId=new Map(sectionNodes.map(node=>[node.dataset.cmsSection,node]));
+      const enabled=a.sections||{};
+      sectionNodes.forEach(node=>{node.hidden=enabled[node.dataset.cmsSection]===false;});
+      document.querySelectorAll('#mainNav a[href^="#"]').forEach(link=>{const id=link.getAttribute('href').slice(1);if(byId.has(id))link.hidden=enabled[id]===false;});
+      if(main&&Array.isArray(a.sectionOrder))a.sectionOrder.forEach(id=>{const node=byId.get(id);if(node)main.appendChild(node);});
     }
     if(cfg.settings){
       const s=cfg.settings;
