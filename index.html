@@ -68,6 +68,27 @@ header select option{color:#183b3e}
 .name-board-art{width:min(520px,90%);height:auto;max-height:145px;object-fit:contain;background:#fff;border-radius:8px;padding:8px}
 @media(max-width:560px){.official-logo{width:56px;height:54px}.name-board-art{width:100%;max-height:110px}}
 </style>
+
+<style id="full-language-support">
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap');
+html[lang="ur"] body,html[lang="ur"] body *{font-family:"Noto Naskh Arabic","Noto Nastaliq Urdu",serif!important}
+html[lang="te"] body,html[lang="te"] body *{font-family:"Noto Sans Telugu",sans-serif!important}
+html[lang="ur"] body{direction:rtl}
+html[lang="ur"] header .nav{direction:rtl}
+html[lang="ur"] nav{direction:rtl}
+html[lang="ur"] .hero-inner{direction:rtl}
+html[lang="ur"] .hero-inner>div:first-child,html[lang="ur"] .section-head,html[lang="ur"] .panel,html[lang="ur"] .card,html[lang="ur"] .future,html[lang="ur"] footer{text-align:right}
+html[lang="ur"] .list{padding-left:0;padding-right:20px}
+html[lang="ur"] .actions{direction:rtl}
+html[lang="ur"] .stat-grid{direction:rtl}
+html[lang="ur"] input,html[lang="ur"] textarea,html[lang="ur"] select{text-align:right;direction:rtl}
+html[lang="ur"] .modal-box{text-align:right;direction:rtl}
+html[lang="ur"] .close{right:auto;left:15px}
+html[lang="te"] body{direction:ltr}
+html[lang="te"] .hero-inner{direction:ltr}
+@media(max-width:900px){html[lang="ur"] nav{right:0;left:0}}
+</style>
+
 </head>
 <body>
 <header><div class="container nav">
@@ -140,6 +161,85 @@ header select option{color:#183b3e}
 function openModal(){document.getElementById('modal').classList.add('open')}function closeModal(){document.getElementById('modal').classList.remove('open')}
 function submitEnquiry(e){e.preventDefault();alert('Thank you. Your admission enquiry has been received. In the full Admin Panel version, this enquiry will be saved for the administrator.');e.target.reset();closeModal()}
 function submitInline(e){e.preventDefault();alert('Thank you. Your enquiry has been received. In the full Admin Panel version, it will be saved for the administrator.');e.target.reset()}
-function changeLang(v){const t=document.getElementById('heroText');if(v==='ur')t.textContent='قرآنی، دینی اور عمومی تعلیم کے ذریعے ایمان، علم اور کردار کی تربیت۔';else if(v==='te')t.textContent='ఖుర్ఆన్, ఇస్లామిక్ మరియు సాధారణ విద్య ద్వారా విశ్వాసం, జ్ఞానం మరియు మంచి స్వభావాన్ని పెంపొందించడం.';else t.textContent='Nurturing faith, knowledge and character through Quranic, Islamic and general education.'}
+const translations={
+ur:{
+"Home":"ہوم","About":"تعارف","Education":"تعلیم","Facilities":"سہولیات","News":"خبریں","Events":"تقریبات","Gallery":"تصاویر","Contact":"رابطہ","Admission Enquiry":"داخلہ کی معلومات",
+"ESTABLISHED 2021 • REGISTERED 2022":"قیام ۲۰۲۱ء • رجسٹریشن ۲۰۲۲ء","JAMIA ":"جامعہ ","ZIA UL QURAN":"ضیاء القرآن","TRUST LAM":"ٹرسٹ لام",
+"Nurturing faith, knowledge and character through Quranic, Islamic and general education.":"قرآنی، دینی اور عمومی تعلیم کے ذریعے ایمان، علم اور کردار کی تربیت۔",
+"Explore Jamia":"جامعہ کا تعارف","Students":"طلبہ","Teachers":"اساتذہ","Staff":"عملہ","Established":"قیام",
+"01 · Our Educational Mission":"۰۱ · ہمارا تعلیمی مشن","Building faith, knowledge and character for the next generation.":"اگلی نسل کے ایمان، علم اور کردار کی تعمیر۔",
+"A modern presentation for a traditional institution — keeping Jamia's identity, values and educational mission at the center.":"ایک روایتی دینی ادارے کی جدید پیشکش، جس میں جامعہ کی شناخت، اقدار اور تعلیمی مشن کو مرکزی حیثیت حاصل ہے۔",
+"Quranic Education":"قرآنی تعلیم","Noorani Qaida, Nazira Quran and Hifz Quran.":"نورانی قاعدہ، ناظرہ قرآن اور حفظ قرآن۔","Islamic Studies":"اسلامیات","Deeniyath with a focus on faith, manners and character.":"ایمان، آداب اور کردار پر توجہ کے ساتھ دینی تعلیم۔","General Education":"عمومی تعلیم","Urdu, Telugu, English and Mathematics.":"اردو، تلگو، انگریزی اور ریاضی۔",
+"About ":"تعارف ","Jamia":"جامعہ","Faith, education and character development.":"ایمان، تعلیم اور کردار سازی۔","JAMIA ZIA UL QURAN TRUST LAM":"جامعہ ضیاء القرآن ٹرسٹ لام",
+"Jamia Zia Ul Quran Trust LAM is committed to providing Quranic, Islamic and general education in a disciplined and nurturing environment. The institution serves students from local and surrounding communities with residential and day-scholar facilities.":"جامعہ ضیاء القرآن ٹرسٹ لام ایک منظم اور تربیتی ماحول میں قرآنی، دینی اور عمومی تعلیم فراہم کرنے کے لیے کوشاں ہے۔ یہ ادارہ مقامی اور اطراف کے علاقوں کے طلبہ کو رہائشی اور غیر رہائشی سہولیات فراہم کرتا ہے۔",
+"Quranic and Islamic education":"قرآنی اور دینی تعلیم","General education support":"عمومی تعلیم کی معاونت","Hostel and day-scholar facilities":"ہاسٹل اور یومیہ طلبہ کی سہولیات","Future expansion towards Alim course":"مستقبل میں عالم کورس کا آغاز",
+"Principal's Message":"پیغامِ ناظم","“Our aim is to nurture students with faith, knowledge, discipline and good character, preparing them to contribute positively to their families and society.”":"”ہمارا مقصد طلبہ کی ایمان، علم، نظم و ضبط اور بہترین اخلاق کے ساتھ تربیت کرنا ہے تاکہ وہ اپنے خاندان اور معاشرے کے لیے مثبت کردار ادا کر سکیں۔“","Founder & Principal":"بانی و ناظم",
+"Educational ":"تعلیمی ","Programs":"پروگرامز","Quranic, Islamic and general education.":"قرآنی، دینی اور عمومی تعلیم۔",
+"Noorani Qaida":"نورانی قاعدہ","Foundational Quran reading and pronunciation.":"قرآن کریم پڑھنے اور درست تلفظ کی بنیادی تعلیم۔","Nazira Quran":"ناظرہ قرآن","Quran recitation with proper reading practice.":"درست طریقۂ قراءت کے ساتھ قرآن کریم کی تلاوت۔","Hifz Quran":"حفظ قرآن","Memorisation of the Holy Quran.":"قرآن کریم حفظ کرنے کی تعلیم۔","Deeniyath":"دینیات","Essential Islamic knowledge and values.":"ضروری دینی علوم اور اسلامی اقدار۔","Urdu":"اردو","Language and literacy education.":"زبان اور خواندگی کی تعلیم۔","Telugu":"تلگو","General language education.":"عمومی زبان کی تعلیم۔","English":"انگریزی","English language and communication.":"انگریزی زبان اور ابلاغ کی تعلیم۔","Mathematics":"ریاضی","Foundational mathematics education.":"ریاضی کی بنیادی تعلیم۔",
+"Our ":"ہماری ","Facilities":"سہولیات","Supporting students in learning and daily life.":"طلبہ کی تعلیم اور روزمرہ زندگی میں معاون سہولیات۔","Hostel":"ہاسٹل","Residential facility for students.":"طلبہ کے لیے رہائشی سہولت۔","Day Scholar":"یومیہ طلبہ","Facility for local students.":"مقامی طلبہ کے لیے سہولت۔","Masjid":"مسجد","Dedicated place for prayer and worship.":"نماز اور عبادت کے لیے مخصوص جگہ۔","Dining / Mess":"طعام گاہ / میس","Dining facility for students.":"طلبہ کے لیے کھانے کا انتظام۔","Playground":"کھیل کا میدان","Space for recreation and physical activity.":"تفریح اور جسمانی سرگرمیوں کے لیے جگہ۔","Classrooms":"درس گاہیں","Learning spaces for academic programs.":"تعلیمی پروگراموں کے لیے کلاس رومز۔",
+"FUTURE ACADEMIC PROGRAM":"مستقبل کا تعلیمی پروگرام","Alim Course ":"عالم کورس ","Coming Soon":"عنقریب","Jamia plans to expand its academic offerings with an Alim course in the future.":"جامعہ مستقبل میں عالم کورس کے ذریعے اپنے تعلیمی پروگراموں کو وسعت دینے کا ارادہ رکھتا ہے۔",
+"Latest ":"تازہ ترین ","News & Notices":"خبریں اور اعلانات","Announcements from Jamia.":"جامعہ کے اعلانات۔","Welcome to Jamia Zia Ul Quran Trust LAM":"جامعہ ضیاء القرآن ٹرسٹ لام میں خوش آمدید","Official website information and announcements will appear here.":"جامعہ کی سرکاری ویب سائٹ کی معلومات اور اعلانات یہاں شائع کیے جائیں گے۔","Admissions":"داخلے","For admission enquiries, contact the Principal at 9490573316.":"داخلے کی معلومات کے لیے ناظم سے 9490573316 پر رابطہ کریں۔",
+"Upcoming ":"آئندہ ","Events":"تقریبات","Programs and activities will be published here.":"پروگراموں اور سرگرمیوں کی تفصیلات یہاں شائع کی جائیں گی۔","Events Coming Soon":"تقریبات کی تفصیلات جلد","The Admin Panel will allow authorized staff to publish events, dates and details.":"ایڈمن پینل کے ذریعے مجاز عملہ تقریبات، تاریخیں اور تفصیلات شائع کر سکے گا۔",
+"Photo ":"تصویری ","Gallery":"گیلری","Campus activities, programs and events.":"جامعہ کی سرگرمیاں، پروگرام اور تقریبات۔","JAMIA GALLERY":"جامعہ کی گیلری","Quranic Education":"قرآنی تعلیم","Jamia's original photographs will be added here.":"جامعہ کی اصل تصاویر یہاں شامل کی جائیں گی۔","Student Activities":"طلبہ کی سرگرمیاں","Campus & Facilities":"جامعہ اور سہولیات","Programs & Events":"پروگرام اور تقریبات","Official Jamia photographs will be published here after they are provided by the institution.":"ادارے کی جانب سے فراہم کردہ جامعہ کی مستند تصاویر یہاں شائع کی جائیں گی۔",
+"Contact ":"رابطہ ","Us":"کریں","We would be happy to hear from you.":"ہم آپ سے رابطہ کرکے خوشی محسوس کریں گے۔","Jonnalagadda X Road, Tadikonda Mandal, Guntur District, Andhra Pradesh – 522034":"جونالگڈہ ایکس روڈ، تاڈیکونڈہ منڈل، ضلع گنٹور، آندھرا پردیش – 522034","Call Now":"ابھی کال کریں","WhatsApp":"واٹس ایپ","Email":"ای میل","Send an Enquiry":"معلومات بھیجیں","Your Name":"آپ کا نام","Mobile Number":"موبائل نمبر","Course / Class Interested In":"مطلوبہ کورس / جماعت","Message":"پیغام","Submit Enquiry":"درخواست جمع کریں","Quick Links":"اہم روابط","Languages":"زبانیں","All Rights Reserved.":"جملہ حقوق محفوظ ہیں۔","Admin Panel":"ایڈمن پینل","Admission ":"داخلہ ","Please send your details. The Jamia team will contact you.":"براہِ کرم اپنی تفصیلات بھیجیں۔ جامعہ کی ٹیم آپ سے رابطہ کرے گی۔","Student Name":"طالب علم کا نام","Parent / Guardian Name":"والد / سرپرست کا نام","Select Course / Class":"کورس / جماعت منتخب کریں"
+},
+te:{
+"Home":"హోమ్","About":"పరిచయం","Education":"విద్య","Facilities":"సౌకర్యాలు","News":"వార్తలు","Events":"కార్యక్రమాలు","Gallery":"చిత్రాల గ్యాలరీ","Contact":"సంప్రదింపు","Admission Enquiry":"ప్రవేశ వివరాలు",
+"ESTABLISHED 2021 • REGISTERED 2022":"స్థాపన 2021 • నమోదు 2022","JAMIA ":"జామియా ","ZIA UL QURAN":"జియా ఉల్ ఖురాన్","TRUST LAM":"ట్రస్ట్ లామ్",
+"Nurturing faith, knowledge and character through Quranic, Islamic and general education.":"ఖుర్ఆన్, ఇస్లామిక్ మరియు సాధారణ విద్య ద్వారా విశ్వాసం, జ్ఞానం మరియు సత్ప్రవర్తనను పెంపొందించడం.",
+"Explore Jamia":"జామియా పరిచయం","Students":"విద్యార్థులు","Teachers":"ఉపాధ్యాయులు","Staff":"సిబ్బంది","Established":"స్థాపన",
+"01 · Our Educational Mission":"01 · మా విద్యా లక్ష్యం","Building faith, knowledge and character for the next generation.":"తరువాతి తరానికి విశ్వాసం, జ్ఞానం మరియు సత్ప్రవర్తనను అందించడం.",
+"A modern presentation for a traditional institution — keeping Jamia's identity, values and educational mission at the center.":"సంప్రదాయ విద్యాసంస్థకు ఆధునిక రూపం — జామియా గుర్తింపు, విలువలు మరియు విద్యా లక్ష్యాలకు ప్రాధాన్యత.",
+"Quranic Education":"ఖుర్ఆన్ విద్య","Noorani Qaida, Nazira Quran and Hifz Quran.":"నూరానీ ఖైదా, నజీరా ఖుర్ఆన్ మరియు హిఫ్జ్ ఖుర్ఆన్.","Islamic Studies":"ఇస్లామిక్ అధ్యయనాలు","Deeniyath with a focus on faith, manners and character.":"విశ్వాసం, మర్యాదలు మరియు సత్ప్రవర్తనపై దృష్టితో దీన్‌యాత్.","General Education":"సాధారణ విద్య","Urdu, Telugu, English and Mathematics.":"ఉర్దూ, తెలుగు, ఇంగ్లీష్ మరియు గణితం.",
+"About ":"గురించి ","Jamia":"జామియా","Faith, education and character development.":"విశ్వాసం, విద్య మరియు వ్యక్తిత్వ వికాసం.","JAMIA ZIA UL QURAN TRUST LAM":"జామియా జియా ఉల్ ఖురాన్ ట్రస్ట్ లామ్",
+"Jamia Zia Ul Quran Trust LAM is committed to providing Quranic, Islamic and general education in a disciplined and nurturing environment. The institution serves students from local and surrounding communities with residential and day-scholar facilities.":"జామియా జియా ఉల్ ఖురాన్ ట్రస్ట్ లామ్ క్రమశిక్షణతో కూడిన మంచి వాతావరణంలో ఖుర్ఆన్, ఇస్లామిక్ మరియు సాధారణ విద్యను అందించడానికి కట్టుబడి ఉంది. స్థానిక మరియు పరిసర ప్రాంతాల విద్యార్థులకు వసతి మరియు డే స్కాలర్ సౌకర్యాలను అందిస్తుంది.",
+"Quranic and Islamic education":"ఖుర్ఆన్ మరియు ఇస్లామిక్ విద్య","General education support":"సాధారణ విద్యా సహాయం","Hostel and day-scholar facilities":"హాస్టల్ మరియు డే స్కాలర్ సౌకర్యాలు","Future expansion towards Alim course":"భవిష్యత్తులో ఆలిమ్ కోర్సు విస్తరణ",
+"Principal's Message":"ప్రిన్సిపాల్ సందేశం","“Our aim is to nurture students with faith, knowledge, discipline and good character, preparing them to contribute positively to their families and society.”":"“విశ్వాసం, జ్ఞానం, క్రమశిక్షణ మరియు మంచి నడవడికతో విద్యార్థులను తీర్చిదిద్ది, కుటుంబం మరియు సమాజానికి సానుకూలంగా సేవ చేసేలా చేయడం మా లక్ష్యం.”","Founder & Principal":"వ్యవస్థాపకులు & ప్రిన్సిపాల్",
+"Educational ":"విద్యా ","Programs":"కార్యక్రమాలు","Quranic, Islamic and general education.":"ఖుర్ఆన్, ఇస్లామిక్ మరియు సాధారణ విద్య.",
+"Noorani Qaida":"నూరానీ ఖైదా","Foundational Quran reading and pronunciation.":"ఖుర్ఆన్ చదవడం మరియు ఉచ్చారణలో ప్రాథమిక శిక్షణ.","Nazira Quran":"నజీరా ఖుర్ఆన్","Quran recitation with proper reading practice.":"సరైన పఠన విధానంతో ఖుర్ఆన్ పారాయణం.","Hifz Quran":"హిఫ్జ్ ఖుర్ఆన్","Memorisation of the Holy Quran.":"పవిత్ర ఖుర్ఆన్ కంఠస్థం.","Deeniyath":"దీన్‌యాత్","Essential Islamic knowledge and values.":"అవసరమైన ఇస్లామిక్ జ్ఞానం మరియు విలువలు.","Urdu":"ఉర్దూ","Language and literacy education.":"భాషా మరియు అక్షరాస్యత విద్య.","Telugu":"తెలుగు","General language education.":"సాధారణ భాషా విద్య.","English":"ఇంగ్లీష్","English language and communication.":"ఇంగ్లీష్ భాష మరియు సంభాషణ.","Mathematics":"గణితం","Foundational mathematics education.":"ప్రాథమిక గణిత విద్య.",
+"Our ":"మా ","Facilities":"సౌకర్యాలు","Supporting students in learning and daily life.":"విద్య మరియు దైనందిన జీవితంలో విద్యార్థులకు సహాయపడే సౌకర్యాలు.","Hostel":"హాస్టల్","Residential facility for students.":"విద్యార్థుల కోసం నివాస సౌకర్యం.","Day Scholar":"డే స్కాలర్","Facility for local students.":"స్థానిక విద్యార్థుల కోసం సౌకర్యం.","Masjid":"మసీదు","Dedicated place for prayer and worship.":"నమాజ్ మరియు ప్రార్థన కోసం ప్రత్యేక స్థలం.","Dining / Mess":"భోజనశాల / మెస్","Dining facility for students.":"విద్యార్థుల భోజన సౌకర్యం.","Playground":"ఆట స్థలం","Space for recreation and physical activity.":"వినోదం మరియు శారీరక కార్యకలాపాల కోసం స్థలం.","Classrooms":"తరగతి గదులు","Learning spaces for academic programs.":"విద్యా కార్యక్రమాల కోసం తరగతి గదులు.",
+"FUTURE ACADEMIC PROGRAM":"భవిష్యత్ విద్యా కార్యక్రమం","Alim Course ":"ఆలిమ్ కోర్సు ","Coming Soon":"త్వరలో","Jamia plans to expand its academic offerings with an Alim course in the future.":"భవిష్యత్తులో ఆలిమ్ కోర్సుతో విద్యా కార్యక్రమాలను విస్తరించాలని జామియా యోచిస్తోంది.",
+"Latest ":"తాజా ","News & Notices":"వార్తలు & ప్రకటనలు","Announcements from Jamia.":"జామియా ప్రకటనలు.","Welcome to Jamia Zia Ul Quran Trust LAM":"జామియా జియా ఉల్ ఖురాన్ ట్రస్ట్ లామ్‌కు స్వాగతం","Official website information and announcements will appear here.":"అధికారిక వెబ్‌సైట్ సమాచారం మరియు ప్రకటనలు ఇక్కడ ప్రచురించబడతాయి.","Admissions":"ప్రవేశాలు","For admission enquiries, contact the Principal at 9490573316.":"ప్రవేశ వివరాల కోసం ప్రిన్సిపాల్‌ను 9490573316 వద్ద సంప్రదించండి.",
+"Upcoming ":"రాబోయే ","Events":"కార్యక్రమాలు","Programs and activities will be published here.":"కార్యక్రమాలు మరియు కార్యకలాపాల వివరాలు ఇక్కడ ప్రచురించబడతాయి.","Events Coming Soon":"కార్యక్రమాల వివరాలు త్వరలో","The Admin Panel will allow authorized staff to publish events, dates and details.":"అధికారిక సిబ్బంది అడ్మిన్ ప్యానెల్ ద్వారా కార్యక్రమాలు, తేదీలు మరియు వివరాలను ప్రచురించగలరు.",
+"Photo ":"ఫోటో ","Gallery":"గ్యాలరీ","Campus activities, programs and events.":"క్యాంపస్ కార్యకలాపాలు, కార్యక్రమాలు మరియు వేడుకలు.","JAMIA GALLERY":"జామియా గ్యాలరీ","Jamia's original photographs will be added here.":"జామియా అసలు ఫోటోలు ఇక్కడ జోడించబడతాయి.","Student Activities":"విద్యార్థుల కార్యకలాపాలు","Campus & Facilities":"క్యాంపస్ & సౌకర్యాలు","Programs & Events":"కార్యక్రమాలు & వేడుకలు","Official Jamia photographs will be published here after they are provided by the institution.":"సంస్థ అందించే అధికారిక జామియా ఫోటోలు ఇక్కడ ప్రచురించబడతాయి.",
+"Contact ":"సంప్రదించండి ","Us":"","We would be happy to hear from you.":"మీ నుండి సమాచారం అందుకోవడం మాకు ఆనందంగా ఉంటుంది.","Jonnalagadda X Road, Tadikonda Mandal, Guntur District, Andhra Pradesh – 522034":"జొన్నలగడ్డ ఎక్స్ రోడ్, తాడికొండ మండలం, గుంటూరు జిల్లా, ఆంధ్రప్రదేశ్ – 522034","Call Now":"ఇప్పుడే కాల్ చేయండి","WhatsApp":"వాట్సాప్","Email":"ఇమెయిల్","Send an Enquiry":"వివరాలు పంపండి","Your Name":"మీ పేరు","Mobile Number":"మొబైల్ నంబర్","Course / Class Interested In":"ఆసక్తి ఉన్న కోర్సు / తరగతి","Message":"సందేశం","Submit Enquiry":"వివరాలు సమర్పించండి","Quick Links":"త్వరిత లింకులు","Languages":"భాషలు","All Rights Reserved.":"సర్వ హక్కులు محفوظం.","Admin Panel":"అడ్మిన్ ప్యానెల్","Admission ":"ప్రవేశ ","Please send your details. The Jamia team will contact you.":"దయచేసి మీ వివరాలు పంపండి. జామియా బృందం మిమ్మల్ని సంప్రదిస్తుంది.","Student Name":"విద్యార్థి పేరు","Parent / Guardian Name":"తల్లిదండ్రులు / సంరక్షకుని పేరు","Select Course / Class":"కోర్సు / తరగతి ఎంచుకోండి"
+}};
+const attrMap={
+"Official Jamia Zia Ul Quran Trust LAM logo":{ur:"جامعہ ضیاء القرآن ٹرسٹ لام کا سرکاری لوگو",te:"జామియా జియా ఉల్ ఖురాన్ ట్రస్ట్ లామ్ అధికారిక లోగో"},
+"Your Name":{ur:"آپ کا نام",te:"మీ పేరు"},"Mobile Number":{ur:"موبائل نمبر",te:"మొబైల్ నంబర్"},
+"Course / Class Interested In":{ur:"مطلوبہ کورس / جماعت",te:"ఆసక్తి ఉన్న కోర్సు / తరగతి"},
+"Message":{ur:"پیغام",te:"సందేశం"}
+};
+const originalTextNodes=[];
+function changeLang(v){
+ const lang=translations[v]?v:"en", dict=translations[lang]||{};
+ document.documentElement.lang=lang;document.documentElement.dir=lang==="ur"?"rtl":"ltr";
+ document.body.classList.toggle("lang-ur",lang==="ur");document.body.classList.toggle("lang-te",lang==="te");
+ const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+ let node;while(node=walker.nextNode()){
+  if(!node.__sourceText)node.__sourceText=node.nodeValue;
+  const raw=node.__sourceText, key=raw.trim();
+  if(!key)continue;
+  const translated=dict[key];
+  if(lang==="en")node.nodeValue=raw;
+  else if(translated!==undefined)node.nodeValue=raw.replace(key,translated);
+ }
+ document.querySelectorAll("[placeholder],[aria-label],[alt],[title]").forEach(el=>{
+  ["placeholder","aria-label","alt","title"].forEach(a=>{
+   const val=el.getAttribute(a);if(!val)return;
+   if(!el.dataset["original"+a])el.dataset["original"+a]=val;
+   const orig=el.dataset["original"+a];el.setAttribute(a,lang==="en"?orig:(attrMap[orig]?.[lang]||orig));
+  });
+ });
+ document.querySelectorAll("select option").forEach(o=>{
+  if(!o.dataset.original)o.dataset.original=o.textContent;
+  if(lang==="en")o.textContent=o.dataset.original;
+  else if(o.value==="")o.textContent=lang==="ur"?"کورس / جماعت منتخب کریں":"కోర్సు / తరగతి ఎంచుకోండి";
+ });
+ document.querySelectorAll("input[type=submit],input[type=button]").forEach(el=>{});
+ localStorage.setItem("jamia-language",lang);
+}
+document.addEventListener("DOMContentLoaded",()=>{const s=document.querySelector('header select');const saved=localStorage.getItem("jamia-language")||"en";if(s)s.value=saved;changeLang(saved);});
+
 </script>
 </body></html>
