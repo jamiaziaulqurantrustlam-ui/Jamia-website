@@ -178,7 +178,6 @@ function applyCmsSectionStyles(styles){Object.entries(styles||{}).forEach(([id,s
       const root=document.documentElement;
       if(cfg.theme.primary) root.style.setProperty("--teal",cfg.theme.primary);
       if(cfg.theme.secondary) root.style.setProperty("--teal2",cfg.theme.secondary);
-      if(cfg.theme.secondary) root.style.setProperty("--teal2",cfg.theme.secondary);
       if(cfg.theme.gold) root.style.setProperty("--gold",cfg.theme.gold);
     }
     if(cfg.appearance){
