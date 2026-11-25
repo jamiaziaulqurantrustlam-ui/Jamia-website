@@ -72,6 +72,23 @@ html[lang="en"] .hero h1,html[lang="en"] .section-title,html[lang="en"] .info-ca
 #mainNav a[data-custom-nav]{white-space:nowrap}
 @media(max-width:780px){.cms-custom-section{padding:60px 0}#mainNav a[data-custom-nav]{width:100%}}
 </style>
+<style id="gallery-lightbox-styles">
+#gallery .gallery-tile img{cursor:zoom-in}
+#gallery .gallery-tile img:focus-visible{outline:4px solid var(--gold);outline-offset:-4px}
+.gallery-lightbox{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:62px 74px 76px;background:rgba(3,13,15,.96);backdrop-filter:blur(10px)}
+.gallery-lightbox.open{display:flex}
+.gallery-lightbox-image{display:block;max-width:min(100%,1500px);max-height:calc(100vh - 150px);width:auto;height:auto;object-fit:contain;box-shadow:0 18px 70px rgba(0,0,0,.45);border-radius:5px;cursor:zoom-out}
+.gallery-lightbox-close,.gallery-lightbox-nav{position:absolute;display:grid;place-items:center;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.12);color:#fff;border-radius:50%;cursor:pointer;transition:background .2s,transform .2s}
+.gallery-lightbox-close:hover,.gallery-lightbox-nav:hover{background:rgba(255,255,255,.24);transform:scale(1.06)}
+.gallery-lightbox-close{top:20px;right:24px;width:46px;height:46px;font-size:30px;line-height:1}
+.gallery-lightbox-nav{top:50%;width:48px;height:48px;font-size:27px;transform:translateY(-50%)}
+.gallery-lightbox-nav:hover{transform:translateY(-50%) scale(1.06)}
+.gallery-lightbox-prev{left:18px}.gallery-lightbox-next{right:18px}
+.gallery-lightbox-caption{position:absolute;left:20px;right:20px;bottom:19px;color:#fff;text-align:center;font-size:13px;line-height:1.5}
+.gallery-lightbox-counter{display:block;color:#d7c18b;font-size:11px;margin-top:4px;letter-spacing:.7px}
+@media(max-width:650px){.gallery-lightbox{padding:58px 12px 84px}.gallery-lightbox-image{max-height:calc(100vh - 165px);max-width:100%}.gallery-lightbox-close{top:12px;right:12px;width:42px;height:42px}.gallery-lightbox-nav{width:40px;height:40px;font-size:23px;background:rgba(0,0,0,.4)}.gallery-lightbox-prev{left:8px}.gallery-lightbox-next{right:8px}.gallery-lightbox-caption{bottom:14px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.gallery-lightbox-close,.gallery-lightbox-nav{transition:none}}
+</style>
 </head>
 <body>
 <div class="topline"></div>
@@ -130,6 +147,13 @@ html[lang="en"] .hero h1,html[lang="en"] .section-title,html[lang="en"] .info-ca
 </div></div></section>
 </main>
 <footer><div class="wrap footer-grid"><div><div class="footer-brand"><img src="assets/madrasa-logo.svg" alt=""><strong data-i18n="brand">Jamia Zia Ul Quran Trust LAM</strong></div><p data-i18n="footerAbout">Quranic, Islamic and general education with faith, knowledge and character.</p><p>Jonnalagadda X Road, Tadikonda Mandal, Guntur District, Andhra Pradesh – 522034</p><p>9490573316</p></div><div><h3 data-i18n="quickLinks">Quick Links</h3><a href="#about" data-i18n="about">About</a><a href="#education" data-i18n="education">Education</a><a href="#facilities" data-i18n="facilities">Facilities</a><a href="#gallery" data-i18n="gallery">Gallery</a><a href="#contact" data-i18n="contact">Contact</a></div><div><h3 data-i18n="languageTitle">Languages</h3><p>English</p><p>اردو</p><p>తెలుగు</p><a href="admin.html" data-i18n="admin">Admin Panel</a></div></div><div class="wrap copyright">© 2026 Jamia Zia Ul Quran Trust LAM. <span data-i18n="rights">All Rights Reserved.</span></div></footer>
+<div class="gallery-lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
+<button class="gallery-lightbox-close" type="button" id="galleryLightboxClose" aria-label="Close full-size image">×</button>
+<button class="gallery-lightbox-nav gallery-lightbox-prev" type="button" id="galleryLightboxPrev" aria-label="Previous image">‹</button>
+<img class="gallery-lightbox-image" id="galleryLightboxImage" alt="">
+<button class="gallery-lightbox-nav gallery-lightbox-next" type="button" id="galleryLightboxNext" aria-label="Next image">›</button>
+<div class="gallery-lightbox-caption"><span id="galleryLightboxCaption"></span><span class="gallery-lightbox-counter" id="galleryLightboxCounter"></span></div>
+</div>
 <div class="modal" id="admissionModal" role="dialog" aria-modal="true"><div class="modal-box"><button class="modal-close" onclick="closeModal()" aria-label="Close">×</button><h2 data-i18n="admissionTitle">Admission Enquiry</h2><p data-i18n="modalIntro">Please share your details. The Jamia team will contact you.</p><form onsubmit="submitAdmission(event)"><input required placeholder="Student Name" data-ph="studentName"><input required placeholder="Parent / Guardian Name" data-ph="guardian"><input required type="tel" placeholder="Mobile Number" data-ph="mobile"><select required><option value="" data-i18n="selectCourse">Select Course / Class</option><option>Noorani Qaida</option><option>Nazira Quran</option><option>Hifz Quran</option><option>Deeniyath</option><option>Urdu</option><option>Telugu</option><option>English</option><option>Mathematics</option></select><textarea placeholder="Message" data-ph="message"></textarea><button class="btn" type="submit" data-i18n="submit">Submit Enquiry</button></form></div></div>
 <script>
 const dict={
@@ -159,6 +183,66 @@ let jamiaCustomSections=[];
 function cmsEsc(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 window.renderJamiaCustomSections=function(lang){const main=document.querySelector('main'),nav=document.getElementById('mainNav');if(!main||!nav)return;document.querySelectorAll('.cms-custom-section').forEach(n=>n.remove());document.querySelectorAll('[data-custom-nav]').forEach(n=>n.remove());const anchor=nav.querySelector('.language'),footer=document.querySelector('.footer-grid > div:nth-child(2)');if(footer)footer.querySelectorAll('[data-custom-footer]').forEach(n=>n.remove());(jamiaCustomSections||[]).forEach(s=>{const title=s.title?.[lang]||s.title?.en||s.menuLabel?.[lang]||s.id,text=s.text?.[lang]||s.text?.en||'',label=s.menuLabel?.[lang]||s.menuLabel?.en||title,section=document.createElement('section');section.id=s.id;section.className='cms-custom-section';section.dataset.customSection=s.id;section.hidden=s.visible===false;section.innerHTML='<div class="custom-section-inner"><div class="section-head"><div class="section-kicker">'+cmsEsc(label)+'</div><h2 class="custom-section-title">'+cmsEsc(title)+'</h2><p class="custom-content">'+cmsEsc(text)+'</p></div></div>';main.appendChild(section);if(s.menu!==false){const link=document.createElement('a');link.href='#'+s.id;link.dataset.customNav=s.id;link.textContent=label;if(anchor)nav.insertBefore(link,anchor);else nav.appendChild(link);if(footer){const fl=document.createElement('a');fl.href='#'+s.id;fl.dataset.customFooter=s.id;fl.textContent=label;footer.appendChild(fl);}}});};
 function applyCmsSectionStyles(styles){Object.entries(styles||{}).forEach(([id,s])=>{const node=document.querySelector('[data-cms-section="'+id+'"]')||document.getElementById(id);if(!node||!s)return;const first=s.first||'#fff',second=s.second||'#eaf2ed',angle=String(Number(s.angle)||135);node.style.background=s.type==='linear'?'linear-gradient('+angle+'deg,'+first+','+second+')':s.type==='radial'?'radial-gradient(circle,'+first+','+second+')':first;});}
+
+/* Full-screen gallery lightbox: works with both original and CMS-uploaded gallery images. */
+(function(){
+  const viewer=document.getElementById('galleryLightbox'),large=document.getElementById('galleryLightboxImage'),
+    caption=document.getElementById('galleryLightboxCaption'),counter=document.getElementById('galleryLightboxCounter');
+  if(!viewer||!large)return;
+  let images=[],active=0,lastFocus=null;
+  function collectImages(){
+    return [...document.querySelectorAll('#gallery .gallery-tile img')].filter(img=>
+      img.getAttribute('src') && img.style.display!=='none' && !img.closest('[hidden]') &&
+      getComputedStyle(img).display!=='none'
+    );
+  }
+  function showImage(index){
+    if(!images.length)return;
+    active=(index+images.length)%images.length;
+    const img=images[active];
+    large.src=img.currentSrc||img.src;
+    large.alt=img.alt||'Jamia gallery image';
+    caption.textContent=img.alt||img.closest('.gallery-tile')?.querySelector('.gallery-label strong')?.textContent||'';
+    counter.textContent=(active+1)+' / '+images.length;
+    const multi=images.length>1;
+    document.getElementById('galleryLightboxPrev').hidden=!multi;
+    document.getElementById('galleryLightboxNext').hidden=!multi;
+  }
+  function openImage(img){
+    images=collectImages();
+    active=images.indexOf(img);
+    if(active<0)return;
+    lastFocus=document.activeElement;
+    showImage(active);
+    viewer.classList.add('open');
+    viewer.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    document.getElementById('galleryLightboxClose').focus();
+  }
+  function closeViewer(){
+    if(!viewer.classList.contains('open'))return;
+    viewer.classList.remove('open');
+    viewer.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    large.removeAttribute('src');
+    if(lastFocus&&typeof lastFocus.focus==='function')lastFocus.focus();
+  }
+  document.addEventListener('click',e=>{
+    const image=e.target.closest('#gallery .gallery-tile img');
+    if(image){e.preventDefault();openImage(image);}
+  });
+  document.addEventListener('keydown',e=>{
+    if(!viewer.classList.contains('open'))return;
+    if(e.key==='Escape'){e.preventDefault();closeViewer();}
+    else if(e.key==='ArrowLeft'){e.preventDefault();showImage(active-1);}
+    else if(e.key==='ArrowRight'){e.preventDefault();showImage(active+1);}
+  });
+  document.getElementById('galleryLightboxClose').addEventListener('click',closeViewer);
+  document.getElementById('galleryLightboxPrev').addEventListener('click',()=>showImage(active-1));
+  document.getElementById('galleryLightboxNext').addEventListener('click',()=>showImage(active+1));
+  viewer.addEventListener('click',e=>{if(e.target===viewer)closeViewer();});
+  large.addEventListener('click',closeViewer);
+})();
 
 /* Supabase-powered public CMS content */
 (async function loadJamiaPublishedContent(){
