@@ -144,7 +144,7 @@ let initial="en";try{initial=localStorage.getItem("jamia-lang")||"en"}catch(e){}
     }
     if(Array.isArray(cfg.gallery)&&cfg.gallery.length){
       const tiles=document.querySelectorAll("#gallery .gallery-tile");
-      cfg.gallery.slice(0,tiles.length).forEach((item,i)=>{const tile=tiles[i];if(!tile)return;let img=tile.querySelector("img");if(!img){img=document.createElement("img");tile.prepend(img);}img.src=item.url;img.alt=item.title||"Jamia gallery";const label=tile.querySelector(".gallery-label strong");if(label&&item.title)label.textContent=item.title;});
+      cfg.gallery.slice(0,tiles.length).forEach((item,i)=>{const tile=tiles[i];if(!tile)return;let img=tile.querySelector("img");if(!img){img=document.createElement("img");tile.prepend(img);}img.removeAttribute("onerror");img.style.display="block";img.src=item.url;img.alt=item.title||"Jamia gallery";const label=tile.querySelector(".gallery-label strong");if(label&&item.title)label.textContent=item.title;});
     }
   }catch(error){console.warn("Jamia CMS content could not be loaded",error);}
 })();
