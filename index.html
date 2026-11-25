@@ -61,11 +61,17 @@ header select option{color:#183b3e}
 @media(max-width:900px){.brand-wordmark{min-width:0}.brand-copy strong{font-size:11px}.brand-copy small{font-size:9px}.nav{gap:12px}.hero-inner{gap:30px}}
 @media(max-width:560px){.brand-seal{width:42px;height:42px;flex-basis:42px}.brand-copy strong{font-size:10px}.brand-copy small{font-size:8px;letter-spacing:1px}.hero-calligraphy{font-size:35px}.emblem-caption{font-size:8px;letter-spacing:1px}}
 
+
+/* Official CorelDRAW SVG assets */
+.official-logo{width:72px;height:66px;max-height:66px;object-fit:contain}
+.hero-logo{width:100%;height:100%;max-height:245px;object-fit:contain;filter:none}
+.name-board-art{width:min(520px,90%);height:auto;max-height:145px;object-fit:contain;background:#fff;border-radius:8px;padding:8px}
+@media(max-width:560px){.official-logo{width:56px;height:54px}.name-board-art{width:100%;max-height:110px}}
 </style>
 </head>
 <body>
 <header><div class="container nav">
-<a class="logo brand-wordmark" href="#home" aria-label="Jamia Zia Ul Quran Trust LAM home"><span class="brand-seal" aria-hidden="true">ض</span><span class="brand-copy"><strong>JAMIA ZIA UL QURAN</strong><small>TRUST LAM · GUNTUR</small></span></a>
+<a class="logo" href="#home" aria-label="Jamia Zia Ul Quran Trust LAM home"><img class="official-logo" src="assets/madrasa-logo.svg" alt="Official Jamia Zia Ul Quran Trust LAM logo"></a>
 <button class="menu" onclick="document.querySelector('nav').classList.toggle('nav-open')">☰</button>
 <nav><a href="#home">Home</a><a href="#about">About</a><a href="#education">Education</a><a href="#facilities">Facilities</a><a href="#news">News</a><a href="#events">Events</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
 <select onchange="changeLang(this.value)"><option value="en">English</option><option value="ur">اردو</option><option value="te">తెలుగు</option></select><button class="btn" onclick="openModal()">Admission Enquiry</button></nav>
@@ -76,7 +82,7 @@ header select option{color:#183b3e}
 <span class="badge">ESTABLISHED 2021 • REGISTERED 2022</span><h1>JAMIA <span class="gold">ZIA UL QURAN</span><br>TRUST LAM</h1>
 <p id="heroText">Nurturing faith, knowledge and character through Quranic, Islamic and general education.</p>
 <div class="actions"><a class="btn" href="#about">Explore Jamia</a><button class="btn outline" onclick="openModal()">Admission Enquiry</button></div>
-</div><div class="emblem" role="img" aria-label="Jamia Zia Ul Quran Trust LAM"><div class="inner"><div class="hero-calligraphy" lang="ur" dir="rtl">جامعہ<br><span>ضیاء القرآن</span><small>ٹرسٹ لام</small></div><div class="emblem-caption">FAITH · KNOWLEDGE · CHARACTER</div></div></div></div></section>
+</div><div class="emblem"><div class="inner"><img class="hero-logo" src="assets/madrasa-logo.svg" alt="جامعہ ضیاء القرآن ٹرسٹ لام"></div></div></div></section>
 
 <section class="stats"><div class="container stat-grid"><div class="stat"><b>140</b>Students</div><div class="stat"><b>11</b>Teachers</div><div class="stat"><b>5</b>Staff</div><div class="stat"><b>2021</b>Established</div></div></section>
 
@@ -125,7 +131,7 @@ header select option{color:#183b3e}
 </div></div></section>
 </main>
 
-<footer><div class="container footer-grid"><div><h3>Jamia Zia Ul Quran Trust LAM</h3><p>Jonnalagadda X Road, Tadikonda Mandal, Guntur District, Andhra Pradesh – 522034</p><p>📞 9490573316</p><p>✉️ jamiaziaulqurantrustlam@gmail.com</p></div><div><h3>Quick Links</h3><a href="#about">About</a><a href="#education">Education</a><a href="#facilities">Facilities</a><a href="#news">News</a><a href="#contact">Contact</a></div><div><h3>Languages</h3><p>English</p><p>اردو</p><p>తెలుగు</p></div></div><div class="container copy">© 2026 Jamia Zia Ul Quran Trust LAM. All Rights Reserved. &nbsp; | &nbsp; <a href="admin.html" style="color:var(--gold2)">Admin Panel</a></div></footer>
+<footer><div class="container" style="text-align:center;padding-bottom:28px"><img class="name-board-art" src="assets/madrasa-name-board.svg" alt="Jamia Zia Ul Quran Trust LAM name board"></div><div class="container footer-grid"><div><h3>Jamia Zia Ul Quran Trust LAM</h3><p>Jonnalagadda X Road, Tadikonda Mandal, Guntur District, Andhra Pradesh – 522034</p><p>📞 9490573316</p><p>✉️ jamiaziaulqurantrustlam@gmail.com</p></div><div><h3>Quick Links</h3><a href="#about">About</a><a href="#education">Education</a><a href="#facilities">Facilities</a><a href="#news">News</a><a href="#contact">Contact</a></div><div><h3>Languages</h3><p>English</p><p>اردو</p><p>తెలుగు</p></div></div><div class="container copy">© 2026 Jamia Zia Ul Quran Trust LAM. All Rights Reserved. &nbsp; | &nbsp; <a href="admin.html" style="color:var(--gold2)">Admin Panel</a></div></footer>
 
 <div class="modal" id="modal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><h2>Admission <span class="gold">Enquiry</span></h2><p style="color:var(--muted);margin:8px 0 20px">Please send your details. The Jamia team will contact you.</p>
 <form onsubmit="submitEnquiry(event)"><input required placeholder="Student Name"><input required placeholder="Parent / Guardian Name"><input required type="tel" placeholder="Mobile Number"><select required style="width:100%"><option value="">Select Course / Class</option><option>Noorani Qaida</option><option>Nazira Quran</option><option>Hifz Quran</option><option>Deeniyath</option><option>Urdu</option><option>Telugu</option><option>English</option><option>Mathematics</option></select><textarea placeholder="Message"></textarea><button class="btn" type="submit">Submit Enquiry</button></form></div></div>
