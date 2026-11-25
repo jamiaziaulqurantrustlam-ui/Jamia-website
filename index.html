@@ -33,11 +33,39 @@ h1{font-family:Georgia,serif!important;font-weight:500!important;letter-spacing:
 footer{background:#031d20!important}
 .project-style{background:#fff;border:1px solid #e1e7e5;padding:30px;min-height:230px}
 @media(max-width:900px){.stat-grid{padding:35px 0!important}.stat{border-right:0!important;border-bottom:1px solid #e1e7e5!important}}
+
+/* Phase 1 visual fixes */
+.brand-wordmark{min-width:245px;gap:11px;color:#0c292c!important}
+.brand-seal{width:48px;height:48px;flex:0 0 48px;border:1.5px solid #c79b32;border-radius:50%;display:grid;place-items:center;color:#0b5558;font-family:Georgia,serif;font-size:27px;font-weight:700;background:linear-gradient(145deg,#fff,#f3ead0);box-shadow:inset 0 0 0 4px rgba(199,155,50,.10)}
+.brand-copy{display:flex;flex-direction:column;line-height:1.15;gap:5px}
+.brand-copy strong{font-size:13px;letter-spacing:.55px;color:#0c292c}
+.brand-copy small{font-size:10px;letter-spacing:1.8px;color:#8b702c;font-weight:800}
+header select{color:#183b3e!important;background:#fff!important;border-color:#d4af37!important;min-width:94px}
+header select option{color:#183b3e}
+.hero h1{color:#fff!important;text-shadow:0 5px 22px rgba(0,0,0,.22)!important}
+.hero h1 .gold{color:#f0d477!important}
+.hero .emblem{background:radial-gradient(circle,rgba(255,255,255,.12),rgba(255,255,255,.015) 68%)}
+.hero-calligraphy{font-family:"Noto Naskh Arabic","Noto Nastaliq Urdu",serif;font-size:clamp(34px,4vw,52px);font-weight:700;line-height:1.35;color:#f0d477;text-align:center;text-shadow:0 4px 18px rgba(0,0,0,.18)}
+.hero-calligraphy span{display:block;color:#fff;font-size:1.06em}
+.hero-calligraphy small{display:block;color:#f0d477;font-size:.55em;margin-top:6px}
+.emblem-caption{font-size:9px;letter-spacing:2px;color:#d8e5df;margin-top:12px;text-align:center}
+.gallery-placeholder{padding:0!important;overflow:hidden}
+.gallery-art{height:210px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:radial-gradient(circle at 50% 45%,rgba(240,212,119,.22),transparent 42%),linear-gradient(135deg,#063f46,#0b6267);color:#f0d477}
+.gallery-art span{font-family:"Noto Naskh Arabic",serif;font-size:54px;font-weight:700}
+.gallery-art small{font-size:9px;letter-spacing:3px;color:#e6ece6}
+.gallery-art-2{background:radial-gradient(circle at 50% 45%,rgba(240,212,119,.22),transparent 42%),linear-gradient(135deg,#123c42,#60766b)}
+.gallery-art-3{background:radial-gradient(circle at 50% 45%,rgba(240,212,119,.22),transparent 42%),linear-gradient(135deg,#233e4a,#0a5960)}
+.gallery-art-4{background:radial-gradient(circle at 50% 45%,rgba(240,212,119,.22),transparent 42%),linear-gradient(135deg,#4c412c,#0b5558)}
+.gallery-placeholder .caption{background:#fff;color:#0c292c}
+.gallery-placeholder .caption small{color:#66797b}
+@media(max-width:900px){.brand-wordmark{min-width:0}.brand-copy strong{font-size:11px}.brand-copy small{font-size:9px}.nav{gap:12px}.hero-inner{gap:30px}}
+@media(max-width:560px){.brand-seal{width:42px;height:42px;flex-basis:42px}.brand-copy strong{font-size:10px}.brand-copy small{font-size:8px;letter-spacing:1px}.hero-calligraphy{font-size:35px}.emblem-caption{font-size:8px;letter-spacing:1px}}
+
 </style>
 </head>
 <body>
 <header><div class="container nav">
-<a class="logo" href="#home"><img class="official-logo" src="jamia_zia_ul_quran_logo.png" alt="Jamia Zia Ul Quran Trust LAM official logo"></a>
+<a class="logo brand-wordmark" href="#home" aria-label="Jamia Zia Ul Quran Trust LAM home"><span class="brand-seal" aria-hidden="true">ض</span><span class="brand-copy"><strong>JAMIA ZIA UL QURAN</strong><small>TRUST LAM · GUNTUR</small></span></a>
 <button class="menu" onclick="document.querySelector('nav').classList.toggle('nav-open')">☰</button>
 <nav><a href="#home">Home</a><a href="#about">About</a><a href="#education">Education</a><a href="#facilities">Facilities</a><a href="#news">News</a><a href="#events">Events</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
 <select onchange="changeLang(this.value)"><option value="en">English</option><option value="ur">اردو</option><option value="te">తెలుగు</option></select><button class="btn" onclick="openModal()">Admission Enquiry</button></nav>
@@ -48,7 +76,7 @@ footer{background:#031d20!important}
 <span class="badge">ESTABLISHED 2021 • REGISTERED 2022</span><h1>JAMIA <span class="gold">ZIA UL QURAN</span><br>TRUST LAM</h1>
 <p id="heroText">Nurturing faith, knowledge and character through Quranic, Islamic and general education.</p>
 <div class="actions"><a class="btn" href="#about">Explore Jamia</a><button class="btn outline" onclick="openModal()">Admission Enquiry</button></div>
-</div><div class="emblem"><div class="inner"><img class="hero-logo" src="jamia_zia_ul_quran_logo.png" alt="جامعہ ضیاء القرآن ٹرسٹ لام"></div></div></div></section>
+</div><div class="emblem" role="img" aria-label="Jamia Zia Ul Quran Trust LAM"><div class="inner"><div class="hero-calligraphy" lang="ur" dir="rtl">جامعہ<br><span>ضیاء القرآن</span><small>ٹرسٹ لام</small></div><div class="emblem-caption">FAITH · KNOWLEDGE · CHARACTER</div></div></div></div></section>
 
 <section class="stats"><div class="container stat-grid"><div class="stat"><b>140</b>Students</div><div class="stat"><b>11</b>Teachers</div><div class="stat"><b>5</b>Staff</div><div class="stat"><b>2021</b>Established</div></div></section>
 
@@ -84,12 +112,12 @@ footer{background:#031d20!important}
 <section id="events"><div class="container"><div class="section-head"><h2>Upcoming <span class="gold">Events</span></h2><p>Programs and activities will be published here.</p></div><div class="panel" style="text-align:center"><h3>Events Coming Soon</h3><p style="color:var(--muted);margin-top:8px">The Admin Panel will allow authorized staff to publish events, dates and details.</p></div></div></section>
 
 <section id="gallery"><div class="container"><div class="section-head"><h2>Photo <span class="gold">Gallery</span></h2><p>Campus activities, programs and events.</p></div><div class="grid">
-<a class="card gallery-card" href="https://www.pexels.com/photo/child-reading-quran-in-mosque-setting-39701494/" target="_blank"><img src="https://images.pexels.com/photos/39701494/pexels-photo-39701494.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Student reading Quran"><div class="caption"><h3>Quran Study</h3><small>Temporary demo photo • Pexels</small></div></a>
-<a class="card gallery-card" href="https://www.pexels.com/photo/children-reading-the-quran-in-a-mosque-27976845/" target="_blank"><img src="https://images.pexels.com/photos/27976845/pexels-photo-27976845.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Students studying Quran"><div class="caption"><h3>Student Learning</h3><small>Temporary demo photo • Pexels</small></div></a>
-<a class="card gallery-card" href="https://www.pexels.com/photo/mosque-interior-8385228/" target="_blank"><img src="https://images.pexels.com/photos/8385228/pexels-photo-8385228.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Mosque interior"><div class="caption"><h3>Masjid Interior</h3><small>Temporary demo photo • Pexels</small></div></a>
-<a class="card gallery-card" href="https://www.pexels.com/photo/intricate-islamic-architecture-mosque-interior-36013219/" target="_blank"><img src="https://images.pexels.com/photos/36013219/pexels-photo-36013219.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Islamic architecture"><div class="caption"><h3>Islamic Architecture</h3><small>Temporary demo photo • Pexels</small></div></a>
+<div class="card gallery-card gallery-placeholder"><div class="gallery-art"><span>قرآن</span><small>JAMIA GALLERY</small></div><div class="caption"><h3>Quranic Education</h3><small>Jamia's original photographs will be added here.</small></div></div>
+<div class="card gallery-card gallery-placeholder"><div class="gallery-art gallery-art-2"><span>علم</span><small>JAMIA GALLERY</small></div><div class="caption"><h3>Student Activities</h3><small>Jamia's original photographs will be added here.</small></div></div>
+<div class="card gallery-card gallery-placeholder"><div class="gallery-art gallery-art-3"><span>مسجد</span><small>JAMIA GALLERY</small></div><div class="caption"><h3>Campus & Facilities</h3><small>Jamia's original photographs will be added here.</small></div></div>
+<div class="card gallery-card gallery-placeholder"><div class="gallery-art gallery-art-4"><span>اجتماع</span><small>JAMIA GALLERY</small></div><div class="caption"><h3>Programs & Events</h3><small>Jamia's original photographs will be added here.</small></div></div>
 </div>
-<p style="text-align:center;color:var(--muted);font-size:12px;margin-top:18px">These are temporary stock/demo photos. Replace them with Jamia's own campus, students and event photographs before public launch.</p></div></section>
+<p style="text-align:center;color:var(--muted);font-size:12px;margin-top:18px">Official Jamia photographs will be published here after they are provided by the institution.</p></div></section>
 
 <section id="contact"><div class="container"><div class="section-head"><h2>Contact <span class="gold">Us</span></h2><p>We would be happy to hear from you.</p></div><div class="about">
 <div class="panel"><h3>JAMIA ZIA UL QURAN TRUST LAM</h3><p style="margin-top:15px;color:var(--muted)">📍 Jonnalagadda X Road, Tadikonda Mandal, Guntur District, Andhra Pradesh – 522034</p><p style="margin-top:10px">📞 <a class="gold" href="tel:9490573316">9490573316</a></p><p style="margin-top:8px">✉️ <a class="gold" href="mailto:jamiaziaulqurantrustlam@gmail.com">jamiaziaulqurantrustlam@gmail.com</a></p><div class="actions"><a class="btn" href="tel:9490573316">Call Now</a><a class="btn outline" href="https://wa.me/919490573316" target="_blank">WhatsApp</a><a class="btn outline" href="mailto:jamiaziaulqurantrustlam@gmail.com">Email</a></div></div>
