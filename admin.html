@@ -378,7 +378,7 @@ async function saveNewsItem(status){
  if(!hasText){$('newsSaveStatus').textContent='Add a title and description in at least one language.';return;}
  if(!newsDraft.imageUrl&&!file){$('newsSaveStatus').textContent='Please choose one image for this post.';return;}
  if(file&&(!['image/jpeg','image/png','image/webp'].includes(file.type)||file.size>8*1024*1024)){$('newsSaveStatus').textContent='Use JPG, PNG or WebP up to 8 MB.';return;}
- let uploadedPath=null,oldPath=(newsDraft.id?(state.news.find(x=>x.id===newsDraft.id)?.imagePath||newsDraft.imagePath):newsDraft.imagePath);
+ let uploadedPath=null,oldPath=(newsDraft.id?(state.news.find(x=>x.id===newsDraft.id)?.imagePath||newsDraft.imagePath):newsDraft.imagePath);const previousNews=structuredClone(state.news);
  const button=status==='published'?$('publishNews'):$('saveNewsDraft');button.disabled=true;button.textContent=status==='published'?'Publishing…':'Saving…';
  try{
   if(file){
@@ -401,15 +401,16 @@ async function saveNewsItem(status){
   if(newsPreviewObjectUrl){URL.revokeObjectURL(newsPreviewObjectUrl);newsPreviewObjectUrl=null;}
   newsDraft=emptyNewsDraft();renderNewsEditor();renderNewsList();
  }catch(e){
+  state.news=previousNews;
   if(uploadedPath)await sb.storage.from('website-images').remove([uploadedPath]);
   $('newsSaveStatus').textContent='Could not save post: '+err(e);
  }finally{button.disabled=false;button.textContent=status==='published'?'Publish post':'Save draft';}
 }
 async function deleteNewsItem(id){
- const item=state.news.find(x=>x.id===id);if(!item||!confirm('Delete this news post from the website?'))return;
+ const originalIndex=state.news.findIndex(x=>x.id===id),item=state.news[originalIndex];if(!item||!confirm('Delete this news post from the website?'))return;
  state.news=state.news.filter(x=>x.id!==id);
  try{await saveState();if(item.imagePath){const {error}=await sb.storage.from('website-images').remove([item.imagePath]);if(error)toast('Post removed from website. Image cleanup failed: '+err(error));}if(newsDraft?.id===id)resetNewsEditor();renderNewsList();}
- catch(e){state.news.push(item);toast('Could not delete post: '+err(e));}
+ catch(e){state.news.splice(originalIndex,0,item);toast('Could not delete post: '+err(e));}
 }
 function editNewsItem(id){
  const item=state.news.find(x=>x.id===id);if(!item)return;
@@ -443,9 +444,9 @@ $('clearNewsImage').addEventListener('click',()=>{
 $('newsPostList').addEventListener('click',async e=>{
  const edit=e.target.closest('[data-news-edit]'),toggle=e.target.closest('[data-news-toggle]'),del=e.target.closest('[data-news-delete]'),up=e.target.closest('[data-news-up]'),down=e.target.closest('[data-news-down]');
  if(edit){editNewsItem(edit.dataset.newsEdit);return;}
- if(toggle){const item=state.news.find(x=>x.id===toggle.dataset.newsToggle);if(!item)return;item.status=item.status==='published'?'draft':'published';if(item.status==='published'&&!item.publishAt)item.publishAt=localDateTimeValue();try{await saveState();renderNewsList();}catch(ex){toast('Could not update publication status: '+err(ex));}return;}
+ if(toggle){const item=state.news.find(x=>x.id===toggle.dataset.newsToggle);if(!item)return;const oldStatus=item.status,oldPublishAt=item.publishAt;item.status=item.status==='published'?'draft':'published';if(item.status==='published'&&!item.publishAt)item.publishAt=localDateTimeValue();try{await saveState();renderNewsList();}catch(ex){item.status=oldStatus;item.publishAt=oldPublishAt;toast('Could not update publication status: '+err(ex));}return;}
  if(del){await deleteNewsItem(del.dataset.newsDelete);return;}
- if(up||down){const id=(up||down).dataset[up?'newsUp':'newsDown'],i=state.news.findIndex(x=>x.id===id),j=i+(up?-1:1);if(i<0||j<0||j>=state.news.length)return;[state.news[i],state.news[j]]=[state.news[j],state.news[i]];try{await saveState();renderNewsList();}catch(ex){toast('Could not save post order: '+err(ex));}}
+ if(up||down){const id=(up||down).dataset[up?'newsUp':'newsDown'],i=state.news.findIndex(x=>x.id===id),j=i+(up?-1:1);if(i<0||j<0||j>=state.news.length)return;const prior=structuredClone(state.news);[state.news[i],state.news[j]]=[state.news[j],state.news[i]];try{await saveState();renderNewsList();}catch(ex){state.news=prior;toast('Could not save post order: '+err(ex));}}
 });
 
 function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('#app .nav [data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));$('pageTitle').textContent=({dashboard:'Dashboard',design:'Website Design Studio',content:'Complete Website Content',news:'News & Announcements',gallery:'Image Gallery',documents:'Official Documents',settings:'Theme & Settings'})[id]||'Dashboard';}
