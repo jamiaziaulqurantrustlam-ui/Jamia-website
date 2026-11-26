@@ -270,8 +270,9 @@ function renderPublishedNews(lang){
  }[lang]||{};
  grid.replaceChildren();
  posts.forEach(post=>{
-  const translations=post.translations||{},copy=translations[lang]||translations.ur||translations.en||translations.te||{};
-  const title=String(copy.title||"").trim(),description=String(copy.description||"").trim();
+  const translations=post.translations||{};
+  const translated=field=>String(translations[lang]?.[field]||translations.ur?.[field]||translations.en?.[field]||translations.te?.[field]||"").trim();
+  const title=translated("title"),description=translated("description");
   if(!title&&!description)return;
   const card=document.createElement("article");card.className="news-card"+(post.featured?" featured":"");
   if(post.imageUrl){
